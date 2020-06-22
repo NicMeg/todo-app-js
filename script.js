@@ -2,11 +2,15 @@ const addTask = document.querySelector(".add");
 const button = document.querySelector("button");
 const items = document.querySelectorAll("li");
 const ul = document.querySelector("ul");
+const input = document.querySelector("input")
+
 
 // Adding new items
-// console.log("addTask");
 addTask.addEventListener('click', () => {
-  ul.innerHTML += "<li> Something New </li>";
+  // ul.innerHTML += "<li> Something New </li>";
+  const li = document.createElement('li')
+  li.textContent = 'Something new to do'
+  ul.prepend(li);
 });
 document.querySelector(".content");
 
@@ -16,6 +20,7 @@ items.forEach((item) => {
     console.log(e.target);
     console.log(item);
     //e.target.style.textDecoration = "line-through";
+    e.stopPropagation();
     e.target.remove();
   });
 });
